@@ -7,9 +7,83 @@ export const Wrapper = styled.main`
   background-color: ${({ theme }) => theme.colors.mainBackground};
 
   .formContainer {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    overflow: hidden;
     padding: 30px;
+
+    form {
+      z-index: 2;
+    }
+
+    > svg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      transform: translateX(-30%);
+      width: 100%;
+      height: 100%;
+      fill: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+  }
+
+  dialog {
+    text-align: center;
+    margin: auto;
+    border: none;
+    border-radius: 8px;
+    padding: 20px 30px;
+    background-color: ${({ theme }) => theme.colors.mainBackground};
+
+    p {
+      font-size: large;
+      color: ${({ theme }) => theme.colors.text};
+
+      span {
+        color: ${({ theme }) => theme.colors.primary};
+      }
+    }
+
+    hr {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .containerButtons {
+      display: flex;
+      justify-content: start;
+      gap: 10px;
+
+      button {
+        color: white;
+        border: none;
+        font-weight: bold;
+        border-radius: 5px;
+        width: 70px;
+        padding: 8px 0;
+        cursor: pointer;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+      }
+
+      .delete {
+        background-color: ${({ theme }) => theme.colors.primary};
+      }
+
+      .cancel {
+        background-color: ${({ theme }) => theme.colors.secondary};
+      }
+    }
   }
 `
 

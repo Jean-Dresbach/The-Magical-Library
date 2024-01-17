@@ -4,6 +4,7 @@ import { Book } from "../../types"
 import { Wrapper } from "./styles"
 import editImg from "../../../../assets/edit.png"
 import deleteImg from "../../../../assets/trash-can.png"
+import { useModal } from "../../../../contexts/ModalContext"
 
 interface BookItemProps {
   book: Book
@@ -12,14 +13,14 @@ interface BookItemProps {
 
 export function BookItem({ book, onUpdate }: BookItemProps) {
   const [flip, setFlip] = useState(false)
-  const { books, deleteBook } = useBooks()
+  const { books } = useBooks()
+  const { toggleShowModal, handleBookToDelete } = useModal()
 
   const flipBook = () => setFlip(!flip)
 
   function handleDelete() {
-    if (confirm(`Deseja realmente excluir o livro "${book.title}"?`)) {
-      deleteBook(book.id)
-    }
+    handleBookToDelete(book)
+    toggleShowModal()
   }
 
   const defineBookColor = () => books.indexOf(book) % 10

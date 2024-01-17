@@ -6,10 +6,12 @@ import { ListBooks } from "./components/ListBooks"
 import { useBooks } from "../../contexts/BooksContext"
 import { useFormik } from "formik"
 import { formSchema } from "../../schemas"
+import { useModal } from "../../contexts/ModalContext"
 
 export function Main() {
-  const { books, addBook, setBooks } = useBooks()
+  const { books, addBook, setBooks, deleteBook } = useBooks()
   const [search, setSearch] = useState("")
+  const { modal, toggleShowModal } = useModal()
 
   const {
     values,
@@ -77,6 +79,28 @@ export function Main() {
       <ContainerBooks>
         <ListBooks books={books} onUpdate={setValues} bookProperty={search} />
       </ContainerBooks>
+
+      <dialog>
+        <p>
+          Deseja realmente excluir o livro{" "}
+          <span>{modal.bookToDelete.title}</span>?
+        </p>
+        <hr />
+        <div className="containerButtons">
+          <button
+            className="delete"
+            onClick={() => {
+              deleteBook(modal.bookToDelete.id)
+              toggleShowModal()
+            }}
+          >
+            Excluir
+          </button>
+          <button className="cancel" onClick={toggleShowModal}>
+            Cancelar
+          </button>
+        </div>
+      </dialog>
     </Wrapper>
   )
 }
