@@ -8,10 +8,13 @@ export const Wrapper = styled.form`
   margin: 50px 0;
 
   .invalidEntry {
+    color: ${({ theme }) => theme.colors.primary};
+
     input,
     textarea {
       border: 1px solid ${({ theme }) => theme.colors.primary};
     }
+
     span {
       visibility: visible;
     }
@@ -28,12 +31,21 @@ export const Wrapper = styled.form`
     outline: none;
   }
 
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
   span {
     display: block;
     visibility: hidden;
     font-size: 12px;
     margin: 2px 10px 5px;
     color: ${({ theme }) => theme.colors.primary};
+  }
+
+  label:has(input:is(:focus, .valid), textarea:is(:focus, .valid)) {
+    color: ${({ theme }) => theme.colors.secondary};
   }
 
   input:is(:focus, .valid),
