@@ -7,6 +7,7 @@ import { Main } from "./components/Main"
 import { BooksProvider } from "./contexts/BooksContext"
 import { useTheme } from "./contexts/ThemeContext"
 import { ModalContextProvider } from "./contexts/ModalContext"
+import { Footer } from "./components/Footer"
 
 export function App() {
   const { theme } = useTheme()
@@ -19,6 +20,7 @@ export function App() {
         <ModalContextProvider>
           <Main />
         </ModalContextProvider>
+        <Footer />
       </BooksProvider>
     </ThemeProvider>
   )
