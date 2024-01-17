@@ -54,9 +54,9 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
 
         <div className="bookPages"></div>
 
-        <button onClick={() => onUpdate(book)} className="edit">
+        <a href="#form" onClick={() => onUpdate(book)} className="edit">
           <img src={editImg} alt="Editar" />
-        </button>
+        </a>
         <button onClick={handleDelete} className="delete">
           <img src={deleteImg} alt="Excluir" />
         </button>

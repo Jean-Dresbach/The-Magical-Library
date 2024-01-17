@@ -5,6 +5,8 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        scroll-behavior: smooth;
+        scroll-padding: 50px;
     }
 
     body {
@@ -14,6 +16,7 @@ export default createGlobalStyle`
         margin: auto;
         box-shadow: 0 0 21px 10px ${({ theme }) => theme.colors.boxShadow};
         font-family: Arial, Helvetica, sans-serif;
+        
     }
 
     h1, h2, h3, h4 {

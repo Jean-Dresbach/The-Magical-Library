@@ -33,7 +33,7 @@ export function BookForm({
     id === 0 ? "Adicionar livro" : "Atualizar livro"
 
   return (
-    <Wrapper onSubmit={onSubmit}>
+    <Wrapper id="form'" onSubmit={onSubmit}>
       <label className={toggleErrorClass("title")}>
         Título
         <input
