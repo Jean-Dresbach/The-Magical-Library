@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { MouseEvent, useState } from "react"
 import { useBooks } from "../../../../contexts/BooksContext"
 import { Book } from "../../types"
 import { Wrapper } from "./styles"
@@ -18,9 +18,21 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
 
   const flipBook = () => setFlip(!flip)
 
-  function handleDelete() {
+  function handleDelete(e: MouseEvent<HTMLButtonElement>) {
+    e.stopPropagation()
     handleBookToDelete(book)
     toggleShowModal()
+  }
+
+  function handleUpdate(e: MouseEvent<HTMLAnchorElement>) {
+    const targetElement = document.getElementById("form") as HTMLFormElement
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth"
+      })
+    }
+    e.stopPropagation()
+    onUpdate(book)
   }
 
   const defineBookColor = () => books.indexOf(book) % 10
@@ -53,8 +65,7 @@ export function BookItem({ book, onUpdate }: BookItemProps) {
         </div>
 
         <div className="bookPages"></div>
-
-        <a href="#form" onClick={() => onUpdate(book)} className="edit">
+        <a href="#form" onClick={handleUpdate} className="edit">
           <img src={editImg} alt="Editar" />
         </a>
         <button onClick={handleDelete} className="delete">

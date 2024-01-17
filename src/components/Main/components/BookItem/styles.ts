@@ -139,7 +139,7 @@ export const Wrapper = styled.div<WrapperProps>`
       bottom: -35px;
       right: 90px;
       height: 35px;
-      transform: translateZ(-5px);
+      transform: translateZ(-7px);
     }
 
     .edit:hover {
