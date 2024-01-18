@@ -10,11 +10,11 @@ export default {
     text: "#595F72",
     title: "#fff",
     bookBackground: [
-      "#383D3B",
+      "#40531B",
       "#131B23",
       "#582B11",
       "#17B890",
-      "#635D5C",
+      "#3E517A",
       "#880D1E",
       "#090446",
       "#8D6A9F",
