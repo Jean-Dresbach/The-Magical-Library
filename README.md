@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# The Magical Library
 
-Currently, two official plugins are available:
+![Main page display](./src/assets/main-page-display.jpeg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## Expanding the ESLint configuration
+## 🤔 ABOUT 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+At the moment (2024) I'm studying at [Growdev](https://www.growdev.com.br/) in their fullstack web developer course and I'm currently in the first React Module. In the challenge of this module, we were asked to create a React App to manage a magic book collection.
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Features
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Add new books to the collection.
+- Edit existing book information.
+- Delete books that are no longer in the library.
+- View all books in your collection.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 📏 Rules:
+
+- Add Book:
+    - Fields: Id, Title, Author, Year of Publication, Date of
+    registration, gender and a brief description.
+    - All fields are mandatory.
+    - There must be validation to ensure that the year of publication is not in the future.
+- Edit Book:
+    - The same fields as the addition form. It shouldn't be possible to edit registration date and ID
+- Delete Book:
+    - There must be confirmation before deleting a book to ensure that a book is not deleted by mistake.
+- View Book:
+    - There should be a list or grid showing all the books.
+    - Each book must show the Title, Author and Year of Publication.
+    - There should be an option to see more details, which will show all the information in the book.
+
+### 🌟 Bonus:
+- Search Functionality:
+    - Implement a search functionality to find a specific book.
+
+## 💻 Technologies used
+
+- [React](https://react.dev)
+- [Formik](https://formik.org)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+
+👾 Developed by [Jean Rafael Dresbach](https://www.linkedin.com/in/jean-dresbach-a98a90293/?locale=en_US).
